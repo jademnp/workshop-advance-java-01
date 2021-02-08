@@ -34,5 +34,9 @@ public class CircularBuffer {
         return buffers[readPointer++];
     }
 
+    public boolean isFull() {
+        return writePointer==getSize();
+    }
+
     // Private
 }

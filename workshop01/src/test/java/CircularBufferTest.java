@@ -73,4 +73,37 @@ public class CircularBufferTest {
         assertEquals(10, size);
     }
 
+//    @Test
+//    @DisplayName("สร้าง CircularBuffer ขนาด 4 และ write data 5 ตัว ตัวแรกต้องโดน overwrite")
+//    public void overwrite_data_when_it_is_over_size() {
+//        // Act
+//        circularBuffer.create(4);
+//        circularBuffer.write("1");
+//        circularBuffer.write("2");
+//        circularBuffer.write("3");
+//        circularBuffer.write("4");
+//        circularBuffer.write("5");
+//
+//        // Validate/Checking/Assert
+//        assertEquals("1", circularBuffer.read());
+//        assertEquals("2", circularBuffer.read());
+//        assertEquals("3", circularBuffer.read());
+//        assertEquals("4", circularBuffer.read());
+//        assertEquals("5", circularBuffer.read());
+//    }
+
+    @Test
+    @DisplayName("เมื่อมีการ write ครบ 5 ครั้ง CircularBuffer จะเต็ม")
+    public void buffer_is_full_with_5_write() {
+        // Act
+        circularBuffer.create(5);
+        circularBuffer.write("1");
+        circularBuffer.write("2");
+        circularBuffer.write("3");
+        circularBuffer.write("4");
+        circularBuffer.write("5");
+
+        // Validate/Checking/Assert
+        assertEquals(true, circularBuffer.isFull());
+    }
 }
