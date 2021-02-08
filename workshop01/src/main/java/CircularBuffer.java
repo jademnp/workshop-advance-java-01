@@ -1,38 +1,38 @@
 public class CircularBuffer {
+    public static final int DEFAULT_SIZE = 10;
+    // Variables
+    private String[] buffers;
+    private int writePointer;
+    private int readPointer;
 
-    private int capacity;
-    private String[] data;
-    private int readIndex;
-    private int writeIndex;
+    // Constructor
+    public CircularBuffer() {}
 
-    public void create(){
-        create(10);
+    // Methods
+    // Public
+    public void create() {
+        create(DEFAULT_SIZE);
     }
 
-    public void create(int capacity){
-        this.capacity = capacity;
-        this.data = new String[capacity];
-        this.readIndex = 0;
-        this.writeIndex = -1;
+    public void create(int size) {
+        buffers = new String[size];
     }
 
-    public void write(String input) throws Exception {
-        //TODO
+    public int getSize() {
+        return buffers.length;
     }
 
-    public String read() throws Exception {
-        //TODO
+    public boolean isEmpty() {
+        return writePointer - readPointer == 0;
     }
 
-    public boolean isFull(){
-        //TODO
+    public void write(String input) {
+        buffers[writePointer++] = input;
     }
 
-    public boolean isEmpty(){
-        //TODO
+    public String read() {
+        return buffers[readPointer++];
     }
 
-    public int getSize(){
-        return this.capacity;
-    }
+    // Private
 }
