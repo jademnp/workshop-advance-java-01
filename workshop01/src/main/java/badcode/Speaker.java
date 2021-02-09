@@ -75,4 +75,11 @@ public class Speaker {
     public void setCertifications(List<String> certifications) {
         this.certifications = certifications;
     }
+
+    public boolean isFirstNameValid(){
+        return getFirstName() != null && !getFirstName().trim().equals("");
+    }
+    public boolean isLastNameValid(){
+        return getLastName() != null && !getLastName().trim().equals("");
+    }
 }

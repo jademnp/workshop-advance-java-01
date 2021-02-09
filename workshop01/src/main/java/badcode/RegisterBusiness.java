@@ -8,8 +8,8 @@ public class RegisterBusiness {
         Integer speakerId;
         String[] domains = {"gmail.com", "live.com"};
 
-        if (speaker.getFirstName() != null && !speaker.getFirstName().trim().equals("")) {
-            if (speaker.getLastName() != null && !speaker.getLastName().trim().equals("")) {
+        if (speaker.isFirstNameValid()) {
+            if (speaker.isLastNameValid()) {
                 if (speaker.getEmail() != null && !speaker.getEmail().trim().equals("")) {
                     // Tasks
                     String emailDomain = getEmailDomain(speaker.getEmail()); // ArrayIndexOutOfBound
